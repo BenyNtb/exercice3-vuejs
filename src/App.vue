@@ -4,7 +4,7 @@
       <div class="h5 font-weight-bold text-center mb-3">Registration</div>
       <div class="form-group d-flex align-items-center">
         <div class="icon"><span class="far fa-user"></span></div> <input autocomplete="off" type="text"
-          class="form-control" placeholder="First Name" id="firstname" v-model="form.firstname"
+          class="form-control" placeholder="First Name" id="firstname" v-model="form.firstname"  @model='FirstName'
           >
         <p v-if="form.errors.length >= 1">
     <b>Please correct the following error(s):</b>
@@ -15,14 +15,14 @@
       </div>
       <div class="form-group d-flex align-items-center">
         <div class="icon"><span class="far fa-user"></span></div> <input autocomplete="off" type="text"
-          class="form-control" placeholder="Last Name" id="lastname" v-model="form.lastname"
+          class="form-control" placeholder="Last Name" id="lastname" v-model="form.lastname"  @model='LastName'
         >
         
       </div>
       <div class="form-group d-flex align-items-center">
         <div class="icon"><span class="far fa-envelope"></span></div> <input autocomplete="off" type="email"
           class="form-control" 
-          placeholder="Email" id="email" v-model="form.email">
+          placeholder="Email" id="email" v-model="form.email" @model='Email'>
         <!-- <p v-if="errors.length">
     <b>Please correct the following error(s):</b>
     <ul>
@@ -44,15 +44,19 @@
   </p> -->
       </div>
 
-      <div class="btn btn-primary mb-3">Signup</div>
+      <Registration button="Register"/>
       
     </form>
   </div>
 </template>
 
 <script>
+  import Registration from './components/Registration.vue'
   export default {
     name: 'App',
+    components:{
+      Registration
+    },
   data(){
     return {
       form:{
